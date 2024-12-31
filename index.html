@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Resource Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #005bb5;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: #005bb5;
+            margin-bottom: 1rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #0073e6;
+            margin-bottom: 0.5rem;
+        }
+
+        .card a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #005bb5;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Employee Resource Center</h1>
+    </header>
+
+    <nav>
+        <a href="#benefits">Benefits</a>
+        <a href="#discounts">Discounts</a>
+        <a href="#policies">Policies</a>
+        <a href="#it-help">IT Help</a>
+        <a href="#apps">Applications</a>
+    </nav>
+
+    <div class="container">
+        <section id="benefits" class="section">
+            <h2>Employee Benefits</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-heart"></i>
+                    <p>Health and Wellness</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <p>Retirement Plans</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="discounts" class="section">
+            <h2>Online Discounts</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-tag"></i>
+                    <p>Electronics Discounts</p>
+                    <a href="#">Shop Now</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-utensils"></i>
+                    <p>Dining Discounts</p>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="policies" class="section">
+            <h2>Policies and Handbooks</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-book"></i>
+                    <p>Employee Handbook</p>
+                    <a href="#">View</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Company Policies</p>
+                    <a href="#">View</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="it-help" class="section">
+            <h2>IT Help Center</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-tools"></i>
+                    <p>Troubleshooting</p>
+                    <a href="#">Get Help</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-headset"></i>
+                    <p>Contact IT Support</p>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="apps" class="section">
+            <h2>Quick Access Applications</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                    <a href="#">Open Email</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <p>Calendar</p>
+                    <a href="#">Open Calendar</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Company Name - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
