@@ -14,6 +14,42 @@
             color: #333;
         }
 
+        .menu-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007aff;
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-bar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-bar .logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .menu-bar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .menu-bar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .menu-bar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x400') center/cover no-repeat;
             color: white;
@@ -87,6 +123,20 @@
     </style>
 </head>
 <body>
+    <div class="menu-bar">
+        <div class="logo">
+            <img src="https://asset.knovon.net/Knovon_white.png" alt="Knovon Logo">
+            <span>Knovon</span>
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="hr.html">HR</a>
+            <a href="it.html">IT</a>
+            <a href="directory.html">Directory</a>
+            <a href="knovon-one.html">Knovon One</a>
+        </div>
+    </div>
+
     <header>
         <h1>Employee Directory</h1>
     </header>
