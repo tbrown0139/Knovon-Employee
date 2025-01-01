@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
@@ -18,10 +18,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #007aff;
+            background-color: #fff;
             padding: 1rem 2rem;
-            color: white;
+            color: #333;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .menu-bar .logo {
@@ -41,13 +44,14 @@
 
         .menu-bar .nav-links a {
             text-decoration: none;
-            color: white;
+            color: #007aff;
             font-size: 1rem;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .menu-bar .nav-links a:hover {
-            text-decoration: underline;
+            color: #0056b3;
         }
 
         header {
@@ -70,7 +74,7 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
 
@@ -81,6 +85,7 @@
             padding: 1.5rem;
             text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -112,19 +117,28 @@
             text-decoration: underline;
         }
 
-        .common-sites {
-            margin-top: 2rem;
-        }
-
-        .common-sites h2 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #007aff;
-        }
-
-        .common-sites .card img {
-            max-width: 100%;
+        .alert-card {
+            background-color: #ff4d4d;
+            color: white;
+            text-align: center;
             border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .alert-card a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #f5f5f5;
+            color: #888;
+            margin-top: 3rem;
         }
     </style>
 </head>
@@ -148,39 +162,47 @@
     </header>
 
     <div class="container">
-        <h2>IT Services</h2>
-        <div class="cards">
-            <div class="card">
-                <i class="fas fa-key"></i>
-                <p>Password Reset</p>
-                <a href="#">Reset Password</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-network-wired"></i>
-                <p>Network Troubleshooting</p>
-                <a href="#">Troubleshoot</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-tools"></i>
-                <p>Request Service</p>
-                <a href="#">Request Now</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-download"></i>
-                <p>Software Downloads</p>
-                <a href="#">Download</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-cloud"></i>
-                <p>Cloudflare Warp</p>
-                <a href="https://1.1.1.1" target="_blank">Visit Site</a>
-            </div>
+        <div id="alert-card" class="alert-card">
+            <p>Internet connection is unstable. <a href="#">Run a Speed Test</a> or <a href="#">Report the Issue</a>.</p>
         </div>
 
-        <div class="common-sites">
-            <h2>Common Sites</h2>
-            <div id="common-sites-cards" class="cards">
-                <!-- Dynamically load common sites here -->
+        <h2>IT Services</h2>
+        <div class="cards">
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-key"></i>
+                <p>Password Reset</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-network-wired"></i>
+                <p>Network Troubleshooting</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-tools"></i>
+                <p>Request Service</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-download"></i>
+                <p>Software Downloads</p>
+            </div>
+            <div class="card" onclick="location.href='https://1.1.1.1';">
+                <i class="fas fa-cloud"></i>
+                <p>Cloudflare Warp</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>Run a Speed Test</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-envelope"></i>
+                <p>Email</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-calendar-alt"></i>
+                <p>Calendar</p>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <i class="fas fa-cogs"></i>
+                <p>Knovon One</p>
             </div>
         </div>
     </div>
@@ -190,29 +212,19 @@
     </footer>
 
     <script>
-        const sitesDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT93cBbDNQmVKKzM8plXrz4jwFKfMwYU5HtU2q-FIJUGVuSIsEn3ricsv9IsmmHtt_taw8-s9-pE4Ge/pub?gid=0&single=true&output=csv';
+        function checkInternet() {
+            const alertCard = document.getElementById('alert-card');
+            // Simulate internet check (replace with actual logic if available)
+            const unstable = true; // Example condition
 
-        async function loadCommonSites() {
-            const response = await fetch(sitesDataUrl);
-            const csvText = await response.text();
-            const rows = csvText.split('\n').slice(1);
-            const sitesCardsContainer = document.getElementById('common-sites-cards');
-            sitesCardsContainer.innerHTML = '';
-
-            rows.forEach(row => {
-                const [name, link, icon] = row.split(',');
-                const siteCard = document.createElement('div');
-                siteCard.classList.add('card');
-                siteCard.innerHTML = `
-                    <img src="${icon}" alt="${name} Icon">
-                    <p>${name}</p>
-                    <a href="${link}" target="_blank">Visit</a>
-                `;
-                sitesCardsContainer.appendChild(siteCard);
-            });
+            if (unstable) {
+                alertCard.style.display = 'block';
+            } else {
+                alertCard.style.display = 'none';
+            }
         }
 
-        loadCommonSites();
+        checkInternet();
     </script>
 </body>
 </html>
