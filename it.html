@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support - Knovon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .menu-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007aff;
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-bar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-bar .logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .menu-bar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .menu-bar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .menu-bar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x400') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #007aff;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #007aff;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        .common-sites {
+            margin-top: 2rem;
+        }
+
+        .common-sites h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #007aff;
+        }
+
+        .common-sites .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <div class="logo">
+            <img src="https://asset.knovon.net/Knovon_white.png" alt="Knovon Logo">
+            <span>Knovon</span>
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="hr.html">HR</a>
+            <a href="it.html">IT</a>
+            <a href="directory.html">Directory</a>
+            <a href="knovon-one.html">Knovon One</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>IT Support</h1>
+    </header>
+
+    <div class="container">
+        <h2>IT Services</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-key"></i>
+                <p>Password Reset</p>
+                <a href="#">Reset Password</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-network-wired"></i>
+                <p>Network Troubleshooting</p>
+                <a href="#">Troubleshoot</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <p>Request Service</p>
+                <a href="#">Request Now</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-download"></i>
+                <p>Software Downloads</p>
+                <a href="#">Download</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-cloud"></i>
+                <p>Cloudflare Warp</p>
+                <a href="https://1.1.1.1" target="_blank">Visit Site</a>
+            </div>
+        </div>
+
+        <div class="common-sites">
+            <h2>Common Sites</h2>
+            <div id="common-sites-cards" class="cards">
+                <!-- Dynamically load common sites here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Knovon - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const sitesDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT93cBbDNQmVKKzM8plXrz4jwFKfMwYU5HtU2q-FIJUGVuSIsEn3ricsv9IsmmHtt_taw8-s9-pE4Ge/pub?gid=0&single=true&output=csv';
+
+        async function loadCommonSites() {
+            const response = await fetch(sitesDataUrl);
+            const csvText = await response.text();
+            const rows = csvText.split('\n').slice(1);
+            const sitesCardsContainer = document.getElementById('common-sites-cards');
+            sitesCardsContainer.innerHTML = '';
+
+            rows.forEach(row => {
+                const [name, link, icon] = row.split(',');
+                const siteCard = document.createElement('div');
+                siteCard.classList.add('card');
+                siteCard.innerHTML = `
+                    <img src="${icon}" alt="${name} Icon">
+                    <p>${name}</p>
+                    <a href="${link}" target="_blank">Visit</a>
+                `;
+                sitesCardsContainer.appendChild(siteCard);
+            });
+        }
+
+        loadCommonSites();
+    </script>
+</body>
+</html>
